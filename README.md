@@ -1,1 +1,1 @@
-This contains the answers to shell redirections project at ALX
+This contains the projects pf the ALx systen engineering devops program
