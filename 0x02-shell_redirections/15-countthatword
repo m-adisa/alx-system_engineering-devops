@@ -1,0 +1,2 @@
+#!/bin/bash
+grwp -c 'bin' /etc/psswd
