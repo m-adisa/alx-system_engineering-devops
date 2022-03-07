@@ -1,1 +1,1 @@
-The repository for ALX system engineering devops
+This contains the answers to shell redirections project at ALX
