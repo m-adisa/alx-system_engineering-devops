@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# lists the files in the current directory formatted
+
+data=$(ls)
+
+for i in $data; do
+	echo "$i" | cut -d '-' -f2
+done

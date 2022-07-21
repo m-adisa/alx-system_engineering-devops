@@ -1,1 +1,1 @@
-This project introduces shell scripting, loops and conditionals
+The project teaches loops, conditions in shell script
