@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Display best school 10 times
 
 count=0
 
