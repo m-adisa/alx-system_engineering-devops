@@ -1,1 +1,1 @@
-The project teaches linux processes and signals
+Processes and signals project
