@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Install nginx on a server and start it
+sudo apt update
+sudo apt install nginx -y
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error_404.html
+sudo sed -i '38i\error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf
+sudo service nginx restart
