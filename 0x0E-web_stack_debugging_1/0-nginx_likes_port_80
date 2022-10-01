@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Fixes the nginx listening port and reloads the nginx master process
-sed -i 's/listen 8080/listen 80/g' /etc/nginx/sites-enabled/default
-sed -i 's/listen \[::\]:8080/listen \[::\]:80/g' /etc/nginx/sites-enabled/default
-pgrep nginx -o > /run/nginx.pid
-nginx -s reload
-echo '' > /run/nginx.pid
+sed -i "s/listen 8080 default_server;/listen 80 default_server;/" /etc/nginx/sites-enabled/default
+sed -i "s/listen \[::\]:8080 default_server ipv6only=on;/listen \[::\]:80 default_server;/" /etc/nginx/sites-enabled/default
+sed -i "s/ ipv6only=on//" /etc/nginx/sites-available/default
+service nginx restart
