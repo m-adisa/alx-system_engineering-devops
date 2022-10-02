@@ -14,19 +14,15 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 sudo ufw allow 443
 
-sudo certbot certonly -d themike.tech # Choose option 2
+sudo certbot certonly --standalone -d www.themike.tech # Choose option 1
 
 # Location of certificates: /etc/letsencrypt/live/<domain-name>/fullchain.pem
 # Location of private keys: /etc/letsencrypt/live/<domain-name>/privkey.pem
 
 # Concatenate the certificate with the private key: this will be used by haproxy
 # Go on the folder with your letencrypt keys that you just generated
-cd /etc/letsencrypt/live/
-# You might want to do be run all these commands as root if you're getting permission denied
 sudo bash # run as root
-
-cd themike.tech
-cat cert.pem privkey.pem > all.pem
+cat /etc/letsencrypt/live/www.themike.tech/fullchain.pem /etc/letsencrypt/live/www.themike.tech/privkey.pem > /etc/letsencrypt/live/www.themike.tech/www.themike.tech.pem
 
 # Use this all.pem file in your haproxy configuration. Refer to 1-haproxy_ssl_termination file.
 
