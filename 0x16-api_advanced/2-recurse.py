@@ -8,11 +8,14 @@ Base_url = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
 
+
 def recurse(subreddit, hot_list=[], n=0, after=None):
     '''Retrieves a list of hot posts from a given subreddit.
     '''
     api_headers = {
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Accept': 'application/json',
+        'User-Agent': ' '.join([
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
             'AppleWebKit/537.36 (KHTML, like Gecko)',
             'Chrome/97.0.4692.71',
             'Safari/537.36',
@@ -44,3 +47,4 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
             return hot_list if hot_list else None
     else:
         return hot_list if hot_list else None
+    
