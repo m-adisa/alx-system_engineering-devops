@@ -4,15 +4,12 @@
 import requests
 
 
-BASE_URL = 'https://www.reddit.com'
+Base_url = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
 
-
 def recurse(subreddit, hot_list=[], n=0, after=None):
-    '''
-    returns a list containing the titles of all hot articles for a given subreddit.
-    If no results are found for the given subreddit, the function should return None.
+    '''Retrieves a list of hot posts from a given subreddit.
     '''
     api_headers = {
         'Accept': 'application/json',
@@ -20,14 +17,13 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
             'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0)',
             'Gecko/20100101',
             'Firefox/106.0'
-            ])
-        }
-    
+        ])
+    }
     sort = 'hot'
     limit = 30
     res = requests.get(
         '{}/r/{}/.json?sort={}&limit={}&count={}&after={}'.format(
-            BASE_URL,
+            Base_url,
             subreddit,
             sort,
             limit,
