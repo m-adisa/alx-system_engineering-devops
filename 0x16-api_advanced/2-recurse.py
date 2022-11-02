@@ -12,11 +12,11 @@ def recurse(subreddit, hot_list=[], n=0, after=None):
     '''Retrieves a list of hot posts from a given subreddit.
     '''
     api_headers = {
-        'Accept': 'application/json',
-        'User-Agent': ' '.join([
-            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0)',
-            'Gecko/20100101',
-            'Firefox/106.0'
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+            'AppleWebKit/537.36 (KHTML, like Gecko)',
+            'Chrome/97.0.4692.71',
+            'Safari/537.36',
+            'Edg/97.0.1072.62'
         ])
     }
     sort = 'hot'
